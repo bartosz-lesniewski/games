@@ -1,25 +1,26 @@
-export class Quote {
-    constructor(text) {
-        this.text = text
-        this.picked = []
-    }
-    getText() {
-        let content = ''
-        for (const char of this.text) {
-            if (char == ' ' || this.picked.includes(char)) {
-                content += char
-            } else {
-                content += '_'
-            }
-        }
-        return content
+class Game {
+    constructor({
+        outputWrapper,
+        wordWrapper,
+        categoryWrapper,
+        lettersWrapper
+    }) {
+        this.outputWrapper = outputWrapper;
+        this.wordWrapper = wordWrapper;
+        this.categoryWrapper = categoryWrapper;
+        this.lettersWrapper = lettersWrapper;
     }
 
-    pick(letter) {
-        if (!this.text.includes(letter)) {
-            return false
-        }
-        this.picked.push(letter)
-        return true
+    start() {
+        console.log('dziala')
     }
 }
+
+const game = new Game({
+    outputWrapper: document.getElementById('output'),
+    wordWrapper: document.getElementById('word'),
+    categoryWrapper: document.getElementById('category'),
+    lettersWrapper: document.getElementById('letters')
+})
+
+game.start()
