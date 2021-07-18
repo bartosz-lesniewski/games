@@ -1,18 +1,25 @@
 export class Quote {
-    constructor({
-        text
-    }) {
+    constructor(text) {
         this.text = text
+        this.picked = []
     }
     getText() {
-        const content = ''
+        let content = ''
         for (const char of this.text) {
-            if (char == ' ') {
+            if (char == ' ' || this.picked.includes(char)) {
                 content += char
             } else {
                 content += '_'
             }
         }
         return content
+    }
+
+    pick(letter) {
+        if (!this.text.includes(letter)) {
+            return false
+        }
+        this.picked.push(letter)
+        return true
     }
 }

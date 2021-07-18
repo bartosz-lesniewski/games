@@ -35,8 +35,12 @@ class Game {
             text,
             category
         } = this.quotes[Math.floor(Math.random() * this.quotes.length)]
-        this.categoryWrapper = category
+        this.categoryWrapper.inne = category
         this.quote = new Quote(text)
+    }
+
+    pick(letter, e) {
+        e.target.disabled = true
     }
 
     drawLetters() {
@@ -45,9 +49,9 @@ class Game {
             const btnLetter = document.createElement('button')
             btnLetter.innerHTML = letter
             this.lettersWrapper.appendChild(btnLetter)
-            btnLetter.addEventListener('click', () => {
-                console.log(letter)
-            })
+            btnLetter.addEventListener('click', (e) => this.pick(letter, e))
+            console.log(letter)
+
         }
     }
 
