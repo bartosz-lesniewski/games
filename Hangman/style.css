@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+}
+
+#output {
+    height: 25vh;
+    background-color: brown;
+}
+
+#word {
+    height: 25vh;
+    color: white;
+    background-color: blue;
+}
+
+#category {
+    height: 25vh;
+    background-color: burlywood
+}
+
+#letters {
+    height: 25vh;
+    color: white;
+    background-color: darkmagenta
+}
+
+#hangman>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    size: 35px;
+}
