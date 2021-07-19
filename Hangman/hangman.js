@@ -1,19 +1,23 @@
+import {
+    Quote
+} from './quote.js'
+
 class Game {
 
     quotes = [{
-        title: 'y tu mama tambien',
+        text: 'y tu mama tambien',
         category: 'film'
     }, {
-        title: 'z szynka raz',
+        text: 'z szynka raz',
         category: 'książka'
     }, {
-        title: 'everybodys gotta live',
+        text: 'everybodys gotta live',
         category: 'piosenka'
     }, {
-        title: 'a ci, ktorzy tanczyli, zostali uznani za szalonych przez tych, ktorzy nie słyszeli muzyki',
+        text: 'a ci, ktorzy tanczyli, zostali uznani za szalonych przez tych, ktorzy nie słyszeli muzyki',
         category: 'cytat'
     }, {
-        title: 'tomasz michniewicz',
+        text: 'tomasz michniewicz',
         category: 'pisarz'
     }]
 
@@ -27,13 +31,20 @@ class Game {
         this.wordWrapper = wordWrapper;
         this.categoryWrapper = categoryWrapper;
         this.lettersWrapper = lettersWrapper;
+
+        const {
+            text,
+            category
+        } = this.quotes[Math.floor(Math.random() * this.quotes.length)]
+        this.categoryWrapper.innerHTML = category
+        this.quote = new Quote(text)
     }
 
     initQuote() {
-        const quote = this.quotes[Math.floor(Math.random() * this.quotes.length)]
-        this.wordWrapper.innerHTML = quote.title
-        this.categoryWrapper.innerHTML = quote.category
-        console.log(quote)
+        const content = this.quote.getText()
+        this.wordWrapper.innerHTML = content
+
+        console.log(content)
     }
 
     initLetters() {
