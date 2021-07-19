@@ -1,13 +1,13 @@
 body {
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
-    text-align: center;
     justify-content: center;
     margin: 0;
 }
 
 .mainWrapper {
+    text-align: center;
     margin-top: 3%;
-    border: 1px solid black;
     width: 843px;
     height: 768px;
 }
@@ -19,13 +19,31 @@ body {
 }
 
 .topWrapper {
-    border: 1px solid blueviolet;
     width: 523px;
     height: 474px;
 }
 
 .bottomWrapper {
-    border: 1px solid cyan;
+    display: flex;
+    flex-direction: column;
     width: 523px;
     height: 293px;
+}
+
+.mainWrapper .hangman {
+    margin-top: 3%;
+    height: 90%;
+}
+
+.topWrapper,
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end
+}
+
+h3 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
