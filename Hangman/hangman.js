@@ -40,11 +40,11 @@ class Game {
         this.quote = new Quote(text)
     }
 
-    initQuote() {
-        const content = this.quote.getText()
-        this.wordWrapper.innerHTML = content
-
-        console.log(content)
+    answer(letter, e) {
+        e.target.disabled = true
+        if (this.quote.answer(letter)) {
+            this.initQuote()
+        }
     }
 
     initLetters() {
@@ -53,10 +53,15 @@ class Game {
             const btnLetter = document.createElement('button')
             btnLetter.innerHTML = letter
             this.lettersWrapper.appendChild(btnLetter)
-            btnLetter.addEventListener('click', () => {
-                console.log(letter)
-            })
+            btnLetter.addEventListener('click', (e) => this.answer(letter, e))
         }
+    }
+
+    initQuote() {
+        const content = this.quote.getText()
+        this.wordWrapper.innerHTML = content
+
+        console.log(content)
     }
 
     start() {
