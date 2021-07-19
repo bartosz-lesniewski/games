@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.mainWrapper {
+    margin-top: 3%;
+    border: 1px solid black;
+    width: 843px;
+    height: 768px;
+}
+
+.sideWrapper {
+    margin-top: 3%;
+    width: 523px;
+    height: 768px;
+}
+
+.topWrapper {
+    border: 1px solid blueviolet;
+    width: 523px;
+    height: 474px;
+}
+
+.bottomWrapper {
+    border: 1px solid cyan;
+    width: 523px;
+    height: 293px;
+}
