@@ -3,6 +3,8 @@ import {
 } from './quote.js'
 
 class Game {
+    currentLife = 1
+    lastLife = 8
 
     quotes = [{
         text: 'y tu mama tambien',
@@ -14,7 +16,7 @@ class Game {
         text: 'everybodys gotta live',
         category: 'piosenka'
     }, {
-        text: 'a ci, ktorzy tanczyli, zostali uznani za szalonych przez tych, ktorzy nie słyszeli muzyki',
+        text: 'a ci, ktorzy tanczyli, zostali uznani za szalonych przez tych, ktorzy nie slyszeli muzyki',
         category: 'cytat'
     }, {
         text: 'tomasz michniewicz',
@@ -44,6 +46,11 @@ class Game {
         e.target.disabled = true
         if (this.quote.answer(letter)) {
             this.initQuote()
+        } else {
+            this.currentLife++
+            if (this.currentLife == this.lastLife) {
+                this.loose()
+            }
         }
     }
 
@@ -60,6 +67,9 @@ class Game {
     initQuote() {
         const content = this.quote.getText()
         this.wordWrapper.innerHTML = content
+        if (!content.includes('_')) {
+            this.win();
+        }
 
         console.log(content)
     }
@@ -67,6 +77,14 @@ class Game {
     start() {
         this.initLetters()
         this.initQuote()
+    }
+
+    win() {
+        this.wordWrapper.innerHTML = "Brawo! Wygrywasz!!!"
+    }
+
+    loose() {
+        this.wordWrapper.innerHTML = "Porażka, tym razem szczęście Ci nie sprzyjało! Spróbuj ponownie!!!"
     }
 }
 
