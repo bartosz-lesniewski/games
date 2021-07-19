@@ -3,7 +3,7 @@ import {
 } from './quote.js'
 
 class Game {
-    currentLife = 1
+    currentLife = 0
     lastLife = 8
 
     quotes = [{
@@ -16,7 +16,7 @@ class Game {
         text: 'everybodys gotta live',
         category: 'piosenka'
     }, {
-        text: 'a ci, ktorzy tanczyli, zostali uznani za szalonych przez tych, ktorzy nie slyszeli muzyki',
+        text: 'a ci ktorzy tanczyli, zostali uznani za szalonych przez tych ktorzy nie slyszeli muzyki',
         category: 'cytat'
     }, {
         text: 'tomasz michniewicz',
@@ -27,7 +27,7 @@ class Game {
         outputWrapper,
         wordWrapper,
         categoryWrapper,
-        lettersWrapper
+        lettersWrapper,
     }) {
         this.outputWrapper = outputWrapper;
         this.wordWrapper = wordWrapper;
@@ -42,15 +42,21 @@ class Game {
         this.quote = new Quote(text)
     }
 
+    getImg() {
+        document.querySelector('div.life').innerHTML = `<img src=\'./images/${this.currentLife + 1}.png'>`
+    }
+
     answer(letter, e) {
         e.target.disabled = true
         if (this.quote.answer(letter)) {
             this.initQuote()
         } else {
             this.currentLife++
+            this.getImg()
             if (this.currentLife == this.lastLife) {
                 this.loose()
             }
+            console.log(this.currentLife)
         }
     }
 
@@ -70,11 +76,10 @@ class Game {
         if (!content.includes('_')) {
             this.win();
         }
-
-        console.log(content)
     }
 
     start() {
+        this.getImg()
         this.initLetters()
         this.initQuote()
     }

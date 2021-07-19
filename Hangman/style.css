@@ -4,30 +4,31 @@ body {
 }
 
 #output {
-    border: black 1px solid;
-    height: 24.70vh;
-    background-color: brown;
+    height: 23vh;
 }
 
 #word {
-    border: white 1px solid;
+    font-size: 45px;
     letter-spacing: 5px;
-    height: 24.70vh;
-    color: white;
-    background-color: blue;
+    height: 20vh;
 }
 
 #category {
-    border: black 1px solid;
-    height: 24.70vh;
-    background-color: burlywood
+    color: darkblue;
+    margin-left: 50%;
+    font-size: 30px;
+    height: 10vh;
 }
 
 #letters {
-    border: white 1px solid;
-    height: 24.70vh;
-    color: white;
-    background-color: darkmagenta
+    height: 20vh;
+}
+
+#letters>button {
+    z-index: 1;
+    border: black solid 1px;
+    margin: 0 1px;
+    font-size: 30px;
 }
 
 #hangman>div {
@@ -39,6 +40,7 @@ body {
 
 img {
     margin: 1px;
-    width: 150px;
-    height: 100px;
+    width: 50%;
+    margin-left: 27%;
+    margin-top: 10%;
 }
