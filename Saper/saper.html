@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saper</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main class="game">
+        <header class="header">
+            <article class="header__counter">0</article>
+            <button class="header__reset">
+                <svg class='header__button'>
+                    <use href='./assets/sprite.svg#neutral'></use>
+                </svg>
+            </button>
+            <article class="header__counter">0</article>
+        </header>
+        <article class="game__board"></article>
+        <article class="game__panel">
+            <header class="panel__header">
+                <h1 class="panel__heading">Select Difficulty</h1>
+            </header>
+            <section class="panel__buttons">
+                <button data-button-easy>Easy</button>
+                <button data-button-normal>Normal</button>
+                <button data-button-expert>Expert</button>
+            </section>
+        </article>
+        <article class="modal hide">
+            <section class="modal__content">
+                <h2 class="modal__text" data-modal-header>You won!</h2>
+                <button class="modal__button" data-modal-button>Play again!</button>
+            </section>
+        </article>
+    </main>
+    <script src="saper.js" type="module"></script>
+</body>
+
+</html>
