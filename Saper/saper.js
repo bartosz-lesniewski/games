@@ -2,7 +2,11 @@ import {
     Cell
 } from './cell.js'
 
-class Game {
+import {
+    Ui
+} from './ui.js'
+
+class Game extends Ui {
     // constructor()
     config = {
         easy: {
@@ -28,7 +32,10 @@ class Game {
 
     cells = []
 
+    board = null
+
     initGame() {
+        this.handleELements()
         this.newGame()
         console.log('dziala')
     }
@@ -39,15 +46,26 @@ class Game {
         this.numberOfMines = mines
 
         this.generateCells()
+        this.renderBoard()
+    }
+
+    handleELements() {
+        this.board = this.getElement(this.UiSelectors.board)
     }
 
     generateCells() {
         for (let row = 0; row < this.numberOfRows; row++) {
             this.cells[row] = []
             for (let columns = 0; columns < this.numberOfColumns; columns++) {
-                this.cells[row].push()
+                this.cells[row].push(new Cell(column, row))
             }
         }
+    }
+    renderBoard() {
+        this.cells.flat().forEach(cell => {
+            this.board.insertAdjacentHTML('beforeend', cell.createElement())
+            cell.element = cell.getElement
+        })
     }
 }
 
