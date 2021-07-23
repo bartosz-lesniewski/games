@@ -50,12 +50,33 @@ class Game extends Ui {
 
         this.generateCells()
         this.boardArrangement()
+        this.placeMines()
 
         this.cellsElements = this.getElements(this.UiSelectors.cell)
     }
 
     handleElements() {
         this.board = this.getElement(this.UiSelectors.board)
+    }
+
+    placeMines() {
+        let mines = this.minesNumber
+
+        while (mines) {
+            const rowIndex = this.randomNumber(0, this.rowsNumber - 1)
+            const columnIndex = this.randomNumber(0, this.columnsNumber - 1)
+            const cell = this.cells[rowIndex][columnIndex]
+            const alreadyMine = cell.alreadyMine
+            console.log(cell)
+            if (!alreadyMine) {
+                cell.addMine()
+                mines--
+            }
+        }
+    }
+
+    randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min)
     }
 
     generateCells() {
