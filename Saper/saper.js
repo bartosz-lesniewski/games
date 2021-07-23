@@ -2,41 +2,82 @@ import {
     Ui
 } from './Ui.js'
 
+import {
+    Cell
+} from './cell.js'
+
 class Game extends Ui {
+    config = {
+        easy: {
+            rows: 8,
+            columns: 8,
+            mines: 10
+        },
+        normal: {
+            rows: 16,
+            columns: 16,
+            mines: 40
+        },
+        expert: {
+            rows: 16,
+            columns: 30,
+            mines: 99
+        }
+    }
+
+    rowsNumber = null
+    columnsNumber = null
+    minesNumber = null
+
+    cells = []
+    cellsElements = null
     board = null
-    minefieldSize = 64
-    minesNumber = 10
 
-    boardArrangement() {
-        for (let i = 0; i < 10; i++) {
-            const allFields = document.querySelectorAll('.mineBox')
-            allFields[Math.floor(Math.random() * 64)].classList.add('bombs')
-        }
+    start() {
+        this.handleElements();
+        // this.setCellsValue();
+        this.cellsElements = this.getElements(this.UiSelectors.cell);
+        this.newGame()
     }
 
-    fieldsCreator() {
-        for (let i = 0; i < this.minefieldSize; i++) {
-            const fieldGenerator = document.createElement(`div`)
-            fieldGenerator.classList.add("mineBox")
-            this.board.appendChild(fieldGenerator)
-        }
+    newGame(
+        rows = this.config.easy.rows,
+        columns = this.config.easy.columns,
+        mines = this.config.easy.mines
+    ) {
+        this.rowsNumber = rows;
+        this.columnsNumber = columns;
+        this.minesNumber = mines;
+
+        this.generateCells()
+        this.boardArrangement()
+
+        this.cellsElements = this.getElements(this.UiSelectors.cell)
     }
+
     handleElements() {
         this.board = this.getElement(this.UiSelectors.board)
     }
 
-    minesPlaceInCells() {
-        let minesToPlace = this.minesNumber
-        // while (minesToPlace) {
+    // setCellsValue(cell) {
+    //     let mines = 0
+    // }
 
-        // }
+    generateCells() {
+        this.cells.length = 0;
+        for (let row = 0; row < this.rowsNumber; row++) {
+            this.cells[row] = [];
+            for (let column = 0; column < this.columnsNumber; column++) {
+                this.cells[row].push(new Cell(column, row))
+            }
+        }
     }
 
-    start() {
-        this.handleElements()
-        this.fieldsCreator()
-        this.boardArrangement()
-        this.minesPlaceInCells()
+    boardArrangement() {
+        this.cells.flat().forEach((cell) => {
+            this.board.insertAdjacentHTML('beforeend', cell.createElement());
+            cell.element = cell.getElement(cell.selector)
+        })
     }
 }
 

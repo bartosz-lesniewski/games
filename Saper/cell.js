@@ -3,20 +3,16 @@ import {
 } from './ui.js'
 
 export class Cell extends Ui {
-    constructor(column, row) {
-        super()
-        this.column = column
-        this.row = row
-        this.hintValue = 0
-        this.isMine = false
-        this.isReveal = false
-        this.isFlaged = false
-        this.selector = `[data-column='${this.column}'][data-row='${this-row}']`
-        this.element = null;
+    constructor(x, y) {
+        super();
+        this.x = x
+        this.y = y
+        this.selector = `[data-x="${this.x}"][data-y="${this.y}"]`
+        this.element = null
     }
 
     createElement() {
-        const element = `<div class-'cell border border--concave' data-cell data-column='${this.column}' data-row='${this.row}'></div>`
+        const element = `<div class='mineBox' data-cell data-column='${this.x}' data-row='${this.y}'></div>`
         return element
     }
 }

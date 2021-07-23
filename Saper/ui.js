@@ -1,6 +1,7 @@
 export class Ui {
     UiSelectors = {
-        board: '[data-board]'
+        board: '[data-board]',
+        cell: '[data-cell]',
     }
     getElement(selector) {
         return document.querySelector(selector)
