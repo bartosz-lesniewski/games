@@ -35,7 +35,6 @@ class Game extends Ui {
 
     start() {
         this.handleElements();
-        // this.setCellsValue();
         this.cellsElements = this.getElements(this.UiSelectors.cell);
         this.newGame()
     }
@@ -59,12 +58,7 @@ class Game extends Ui {
         this.board = this.getElement(this.UiSelectors.board)
     }
 
-    // setCellsValue(cell) {
-    //     let mines = 0
-    // }
-
     generateCells() {
-        this.cells.length = 0;
         for (let row = 0; row < this.rowsNumber; row++) {
             this.cells[row] = [];
             for (let column = 0; column < this.columnsNumber; column++) {
