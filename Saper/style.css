@@ -1,143 +1,41 @@
-@font-face {
-    font-family: DIGITALDREAM;
-    src: url(./Assets/DIGITALDREAM.ttf);
-}
-
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
+}
+
+html {
+    font-size: 60%;
 }
 
 .game {
-    background-color: khaki;
-    padding: 15px;
-    max-width: 356px;
+    padding: 20px;
+    border: 1px solid black;
     margin-left: auto;
     margin-right: auto;
-}
-
-.game__board {
-    display: flex;
-    flex-wrap: wrap;
+    max-width: 356px;
 }
 
 .header {
     display: flex;
-    justify-content: space-between;
-    padding: 8px;
-}
-
-.header__counter {
-    background-color: black;
-    color: red;
-    padding: 5px;
-    font-family: 'DIGITALDREAM', sans-serif;
-    font-size: 30px;
-    min-width: 80px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.header__button {
-    width: 48px;
-    height: 48px;
-    cursor: pointer;
-}
-
-.header__reset {
-    display: flex;
-    align-items: center;
     justify-content: center;
-    outline: none;
-    background-color: khaki;
+    border: 1px solid dimgray;
 }
 
-.panel__header {
-    text-align: center;
-    font-size: 25px;
-}
-
-.panel__buttons {
+.minefield {
     display: flex;
-}
-
-.button {
-    flex: 1;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    cursor: pointer;
-    font-size: 24px;
-}
-
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.8)
-}
-
-.modal__content {
-    width: 50vw;
-    height: 50vh;
-    background-color: lavender;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.modal__text {
-    font-size: 50px;
-    text-align: center;
-}
-
-.modal__button {
-    cursor: pointer;
-    background-color: transparent;
-    color: black;
-    border: 3px solid black;
-    padding: 10px 20px;
-    font-size: 25px;
-    outline: none;
-    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    transition: background-color .1s ease-in, color .1 ease-in,
-        border-color 0.1s ease-in
 }
 
-.modal__button:hover {
-    background-color: black;
-    color: white;
-    border-color: black;
-}
-
-.border {
-    border: 3px solid
-}
-
-.border--convex {
-    border-color: burlywood white white burlywood;
-}
-
-.border--concave {
-    border-color: white burlywood burlywood white;
-}
-
-.cell {
-    width: 37px;
-    height: 37px;
+.mineBox {
+    border: 1px solid;
+    border-color: dimgray black black dimgray;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
 }
 
-.hide {
-    visibility: hidden;
+.bombs {
+    background-color: red;
 }

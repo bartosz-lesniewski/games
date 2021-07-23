@@ -1,73 +1,45 @@
 import {
-    Cell
-} from './cell.js'
-
-import {
     Ui
-} from './ui.js'
+} from './Ui.js'
 
 class Game extends Ui {
-    // constructor()
-    config = {
-        easy: {
-            rows: 8,
-            columns: 8,
-            mines: 10
-        },
-        normal: {
-            rows: 16,
-            columns: 16,
-            mines: 40
-        },
-        expert: {
-            rows: 16,
-            columns: 30,
-            mines: 99
+    board = null
+    minefieldSize = 64
+    minesNumber = 10
+
+    boardArrangement() {
+        for (let i = 0; i < 10; i++) {
+            const allFields = document.querySelectorAll('.mineBox')
+            allFields[Math.floor(Math.random() * 64)].classList.add('bombs')
         }
     }
 
-    numberOfRows = null
-    numberOfColumns = null
-    numberOfMines = null
-
-    cells = []
-
-    board = null
-
-    initGame() {
-        this.handleELements()
-        this.newGame()
-        console.log('dziala')
+    fieldsCreator() {
+        for (let i = 0; i < this.minefieldSize; i++) {
+            const fieldGenerator = document.createElement(`div`)
+            fieldGenerator.classList.add("mineBox")
+            this.board.appendChild(fieldGenerator)
+        }
     }
-
-    newGame(rows = this.config.easy.rows, columns = this.config.easy.columns, mines = this.config.easy.mines) {
-        this.numberOfRows = rows
-        this.numberOfColumns = columns
-        this.numberOfMines = mines
-
-        this.generateCells()
-        this.renderBoard()
-    }
-
-    handleELements() {
+    handleElements() {
         this.board = this.getElement(this.UiSelectors.board)
     }
 
-    generateCells() {
-        for (let row = 0; row < this.numberOfRows; row++) {
-            this.cells[row] = []
-            for (let columns = 0; columns < this.numberOfColumns; columns++) {
-                this.cells[row].push(new Cell(column, row))
-            }
-        }
+    minesPlaceInCells() {
+        let minesToPlace = this.minesNumber
+        // while (minesToPlace) {
+
+        // }
     }
-    renderBoard() {
-        this.cells.flat().forEach(cell => {
-            this.board.insertAdjacentHTML('beforeend', cell.createElement())
-            cell.element = cell.getElement
-        })
+
+    start() {
+        this.handleElements()
+        this.fieldsCreator()
+        this.boardArrangement()
+        this.minesPlaceInCells()
     }
 }
 
 const game = new Game()
-game.initGame()
+
+game.start()
