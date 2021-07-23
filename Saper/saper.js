@@ -53,6 +53,8 @@ class Game extends Ui {
         this.placeMines()
 
         this.cellsElements = this.getElements(this.UiSelectors.cell)
+        this.eventListeners()
+        console.log(this.cellsElements)
     }
 
     handleElements() {
@@ -94,6 +96,21 @@ class Game extends Ui {
             cell.element = cell.getElement(cell.selector)
         })
     }
+
+    eventListeners() {
+        this.cellsElements.forEach(event => event.addEventListener('click', this.getCellClick))
+    }
+
+    getCellClick(e) {
+        e.preventDefault();
+        const cellClicked = e.target;
+        const rowIndex = parseInt(cellClicked.getAttribute('data-row'), 10);
+        const columnIndex = parseInt(cellClicked.getAttribute('data-column'), 10);
+        const cell = `${rowIndex} ${columnIndex}`;
+
+        console.log(cell)
+    }
+
 }
 
 const game = new Game()
