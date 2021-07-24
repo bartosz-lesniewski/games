@@ -39,3 +39,7 @@ html {
 .bombs {
     background-color: red;
 }
+
+.survived {
+    background-color: green;
+}

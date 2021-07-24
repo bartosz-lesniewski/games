@@ -54,7 +54,6 @@ class Game extends Ui {
 
         this.cellsElements = this.getElements(this.UiSelectors.cell)
         this.eventListeners()
-        console.log(this.cellsElements)
     }
 
     handleElements() {
@@ -69,7 +68,7 @@ class Game extends Ui {
             const columnIndex = this.randomNumber(0, this.columnsNumber - 1)
             const cell = this.cells[rowIndex][columnIndex]
             const alreadyMine = cell.alreadyMine
-            console.log(cell)
+
             if (!alreadyMine) {
                 cell.addMine()
                 mines--
@@ -107,7 +106,13 @@ class Game extends Ui {
         const columnIndex = parseInt(cellClicked.getAttribute('data-column'), 10);
         const cell = this.cells[rowIndex][columnIndex];
 
-        console.log(cell)
+        if (cell.alreadyMine === true) {
+            cellClicked.classList.add('bombs')
+            document.querySelector('h1').textContent = 'BOOM! Trafiłeś na bombę i przegrałeś!'
+            return
+        } else {
+            cellClicked.classList.add('survived')
+        }
     }
 }
 
