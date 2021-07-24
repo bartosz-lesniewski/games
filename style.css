@@ -23,6 +23,18 @@ body {
     height: 474px;
 }
 
+button {
+    margin-bottom: 5%;
+}
+
+.leftBtn {
+    margin-right: 15%;
+}
+
+.rightBtn {
+    margin-left: 15%;
+}
+
 .bottomWrapper {
     display: flex;
     flex-direction: column;
