@@ -101,28 +101,14 @@ class Game extends Ui {
         this.cellsElements.forEach(event => event.addEventListener('click', this.getCellClick))
     }
 
-    // endGame(win) {
-    //     if (!win) {
-    //         console.log('przegrałeś')
-    //     }
-    // }
-
-    // clickCell(cell) {
-    //     if (cell.alreadyMine) {
-    //         this.endGame(false)
-    //     }
-    // }
-
-    getCellClick(e) {
+    getCellClick = (e) => {
         const cellClicked = e.target;
         const rowIndex = parseInt(cellClicked.getAttribute('data-row'), 10);
         const columnIndex = parseInt(cellClicked.getAttribute('data-column'), 10);
-        const cell = `${this.cells} ${[rowIndex]} ${[columnIndex]}`;
+        const cell = this.cells[rowIndex][columnIndex];
 
-        // this.clickCell(cell)
         console.log(cell)
     }
-
 }
 
 const game = new Game()
