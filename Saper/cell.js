@@ -10,6 +10,7 @@ export class Cell extends Ui {
         this.alreadyMine = false
         this.selector = `[data-x="${this.x}"][data-y="${this.y}"]`
         this.element = null
+        this.cellFlagged = false
     }
 
     createElement() {
@@ -19,5 +20,9 @@ export class Cell extends Ui {
 
     addMine() {
         this.alreadyMine = true
+    }
+
+    addFlag() {
+        this.cellFlagged = !this.cellFlagged
     }
 }

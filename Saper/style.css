@@ -43,3 +43,7 @@ html {
 .survived {
     background-color: green;
 }
+
+.cell--is-flag {
+    background-color: darkorange;
+}

@@ -96,8 +96,22 @@ class Game extends Ui {
         })
     }
 
+    cellContextMenu = (e) => {
+        e.preventDefault()
+        const cellClicked = e.target;
+        const rowIndex = parseInt(cellClicked.getAttribute('data-row'), 10);
+        const columnIndex = parseInt(cellClicked.getAttribute('data-column'), 10);
+        const cell = this.cells[rowIndex][columnIndex];
+        const cellFlagged = cell.addFlag()
+
+        if (!cellFlagged === true) {
+            return cellClicked.classList.toggle('cell--is-flag')
+        }
+    }
+
     eventListeners() {
         this.cellsElements.forEach(event => event.addEventListener('click', this.getCellClick))
+        this.cellsElements.forEach(e => e.addEventListener('contextmenu', this.cellContextMenu))
     }
 
     getCellClick = (e) => {
@@ -110,6 +124,8 @@ class Game extends Ui {
             cellClicked.classList.add('bombs')
             document.querySelector('h1').textContent = 'BOOM! Trafiłeś na bombę i przegrałeś!'
             return
+            // } else if () {
+
         } else {
             cellClicked.classList.add('survived')
         }
