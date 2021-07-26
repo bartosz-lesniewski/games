@@ -36,12 +36,12 @@ html {
     cursor: pointer;
 }
 
-.bombs {
-    background-color: red;
-}
-
 .survived {
     background-color: green;
+}
+
+.bombs {
+    background-color: red;
 }
 
 .cell--is-flag {

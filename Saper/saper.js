@@ -105,8 +105,10 @@ class Game extends Ui {
         const cellFlagged = cell.addFlag()
 
         if (!cellFlagged === true) {
-            return cellClicked.classList.toggle('cell--is-flag')
+            cellClicked.classList.toggle('cell--is-flag')
         }
+
+        console.log(cell)
     }
 
     eventListeners() {
@@ -120,13 +122,13 @@ class Game extends Ui {
         const columnIndex = parseInt(cellClicked.getAttribute('data-column'), 10);
         const cell = this.cells[rowIndex][columnIndex];
 
-        if (cell.alreadyMine === true) {
+        if (cell.alreadyMine === true && cell.cellFlagged === false) {
             cellClicked.classList.add('bombs')
             document.querySelector('h1').textContent = 'BOOM! Trafiłeś na bombę i przegrałeś!'
             return
             // } else if () {
 
-        } else {
+        } else if (cell.alreadyMine === false && cell.cellFlagged == false) {
             cellClicked.classList.add('survived')
         }
     }
