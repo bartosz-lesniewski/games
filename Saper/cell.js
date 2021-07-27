@@ -1,6 +1,6 @@
 import {
     Ui
-} from './ui.js'
+} from './Ui.js'
 
 export class Cell extends Ui {
     constructor(x, y) {
