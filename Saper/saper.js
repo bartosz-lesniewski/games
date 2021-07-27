@@ -125,12 +125,15 @@ class Game extends Ui {
         if (cell.alreadyMine === true && cell.cellFlagged === false) {
             cellClicked.classList.add('bombs')
             document.querySelector('h1').textContent = 'BOOM! Trafiłeś na bombę i przegrałeś!'
-            return
-            // } else if () {
-
+            return this.gameOver()
         } else if (cell.alreadyMine === false && cell.cellFlagged == false) {
             cellClicked.classList.add('survived')
         }
+    }
+
+    gameOver() {
+        this.cellsElements.forEach(e => e.removeEventListener('click', this.getCellClick))
+        this.cellsElements.forEach(e => e.removeEventListener('contextmenu', this.cellContextMenu))
     }
 }
 
