@@ -1,10 +1,10 @@
 import {
     Ui
-} from './Ui.js'
+} from '../Saper/Ui.js'
 
 import {
     Cell
-} from './cell.js'
+} from '../Saper/cell.js'
 
 class Game extends Ui {
     config = {

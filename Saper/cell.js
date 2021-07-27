@@ -1,6 +1,6 @@
 import {
     Ui
-} from './Ui.js'
+} from '../Saper/Ui.js'
 
 export class Cell extends Ui {
     constructor(x, y) {
