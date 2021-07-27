@@ -8,7 +8,7 @@ const content = [{
     gameInfo: `<h2>- Kliknij w obrazek aby włączyć grę</br>- Early access nie bierze pod uwagę znaków diaktrycznych, weź to pod uwagę :)</br>- Masz 8 żyć</br></h2><h3>Baw się dobrze :)</h3>`
 }, {
     game: 'Saper',
-    image: `<a href="./Saper/saper.html"><img class='hangman' src="./Saper/images/okladka.png" alt="Game picture"></a>`,
+    image: `<a href="../Saper/saper.html"><img class='hangman' src="../Saper/images/okladka.png" alt="Game picture"></a>`,
     gameInfo: `<h2>- Kliknij w obrazek aby włączyć grę</br>- gra w wersji Alpha, jak trafisz na minę, to gra zwróci czerwone tło w tym miejscu. </br>- Można grać, wygrać lub przegrać, ale obecna wersja nie podpowiada ile min jest przy danym polu</br></h2><h3>Baw się dobrze :)</h3>`
 }]
 
