@@ -37,6 +37,8 @@ class Game extends Ui {
         this.handleElements();
         this.cellsElements = this.getElements(this.UiSelectors.cell);
         this.newGame()
+        // this.mineHint()
+        // console.log(this)
     }
 
     newGame(
@@ -130,6 +132,16 @@ class Game extends Ui {
             cellClicked.classList.add('survived')
         }
     }
+
+    // mineHint = (e) => {
+    //     let minesCounter = 0
+    //     for (let rowIndex = Math.max(cell.y - 1, 0); rowIndex <= Math.min(cell.y + 1, this.rowsNumber - 1); rowIndex++) {
+    //         for (let columnIndex = Math.max(cell.x - 1, 0); columnIndex <= Math.min(cell.x + 1, this.columnsNumber); columnIndex++) {
+    //             if (this.cells[rowIndex][columnIndex].alreadyMine) minesCounter++
+    //         }
+    //     }
+    //     cell.value = minesCounter
+    // }
 
     gameOver() {
         this.cellsElements.forEach(e => e.removeEventListener('click', this.getCellClick))
