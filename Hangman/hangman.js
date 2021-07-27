@@ -85,10 +85,12 @@ class Game {
     }
 
     win() {
+        this.wordWrapper.style.color = 'green'
         this.wordWrapper.innerHTML = "Brawo! Wygrywasz!!!"
     }
 
     loose() {
+        this.wordWrapper.style.color = 'red'
         this.wordWrapper.innerHTML = "Porażka, tym razem szczęście Ci nie sprzyjało! Spróbuj ponownie!!!"
     }
 }
