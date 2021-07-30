@@ -1,9 +1,9 @@
 class Game {
   colors = [
     { color: 'red' },
-    { color: 'yellow' },
-    { color: 'blue' },
     { color: 'green' },
+    { color: 'blue' },
+    // { color: 'yellow' },
     // { color: 'magenta' },
     // { color: 'khaki' },
     // { color: 'salmon' },
@@ -15,8 +15,6 @@ class Game {
     this.leftContainer = leftContainer;
     this.middleContainer = middleContainer;
     this.rightContainer = rightContainer;
-
-    this.index;
   }
 
   start() {
@@ -25,8 +23,7 @@ class Game {
       .addEventListener('click', this.spinEventListener);
   }
 
-  randomColors = (e) => {
-    // e.preventDefault();
+  randomColors = () => {
     let left, middle, right;
     for (let i = 0; i <= 2; i++) {
       if (i == 0) {
@@ -59,13 +56,13 @@ class Game {
 
   spinEventListener = (e) => {
     e.preventDefault();
-    // e = e.target.value;
-    const input = document.querySelector('.bid');
+    let input = document.querySelector('.bid');
+    input = input.value;
 
-    if (input !== '') {
-      this.randomColors();
+    if (isNaN(input) || input == '') {
+      alert('you need to make a bid first');
     } else {
-      console.log('nie ma' + e);
+      this.randomColors();
     }
   };
 }
