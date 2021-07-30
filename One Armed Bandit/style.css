@@ -1,0 +1,61 @@
+.game--title {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+}
+
+.results__container {
+  margin: 5% 10%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.containers {
+  display: flex;
+  min-width: 200px;
+  min-height: 150px;
+}
+
+.left__container {
+  border: 1px solid darkcyan;
+}
+
+.middle__container {
+  border: 1px solid darkgoldenrod;
+}
+
+.right__container {
+  border: 1px solid darkgreen;
+}
+
+.bid {
+  margin-right: 5px;
+  min-width: 90px;
+  min-height: 45px;
+  border: 1px solid darkgoldenrod;
+}
+
+.spin {
+  margin-left: 5px;
+  min-width: 115px;
+  min-height: 45px;
+  border: 1px solid darkgreen;
+}
+
+.bid__container {
+  margin: 0 25%;
+  display: flex;
+}
+
+.stats__container {
+  margin-top: 5%;
+  margin-left: 19%;
+}
+
+p {
+  font-size: 25px;
+}
+
+span {
+  font-weight: bold;
+}

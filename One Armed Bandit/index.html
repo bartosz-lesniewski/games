@@ -4,9 +4,41 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>One Armed Bandit</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <main>
+      <h1 class="game--title">One Armed Bandit</h1>
+      <div class="results__container">
+        <div class="containers left__container"></div>
+        <div class="containers middle__container"></div>
+        <div class="containers right__container"></div>
+      </div>
+      <div class="bid__container">
+        <input type="text" class="bid" placeholder="BET SOME MONEY!" />
+        <button class="spin">SPIN!</button>
+      </div>
+      <div class="stats__container">
+        <p class="wallet">
+          In your wallet you still have:<span class="wallet__span"> 100$</span>
+        </p>
+        <p class="games">
+          You already played <span class="games__span"> 0 </span>games.
+        </p>
+        <p class="wins">
+          You already win <span class="wins__span"> 0 </span>games.
+        </p>
+        <p class="loses">
+          You already lose <span class="loses__span"> 0 </span>games.
+        </p>
+        <p class="summary">
+          You won in total <span class="summary__span--won"> 0$. </span> You
+          lost in total
+          <span class="summary__span--lose"> 0$.</span>
+        </p>
+      </div>
+    </main>
     <script src="Game.js"></script>
   </body>
 </html>
