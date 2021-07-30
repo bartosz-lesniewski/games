@@ -11,19 +11,23 @@ class Game {
     // { color: 'indigo' },
   ];
 
-  constructor({ leftContainer, middleContainer, rightContainer }) {
+  constructor({ leftContainer, middleContainer, rightContainer, walletSpan }) {
     this.leftContainer = leftContainer;
     this.middleContainer = middleContainer;
     this.rightContainer = rightContainer;
+    this.walletSpan = walletSpan;
+
+    this.currentMoney = 100;
   }
 
   start() {
+    this.walletSpan.textContent = this.currentMoney;
     document
       .querySelector('.spin')
       .addEventListener('click', this.spinEventListener);
   }
 
-  randomColors = () => {
+  randomColors = (input) => {
     let left, middle, right;
     for (let i = 0; i <= 2; i++) {
       if (i == 0) {
@@ -40,29 +44,35 @@ class Game {
       }
     }
     if (left == middle && middle == right) {
-      this.win();
+      this.win(input);
     } else {
-      this.lose();
+      this.lose(input);
     }
   };
 
-  win() {
+  win(input) {
     console.log('brawo, wygrałeś');
+    input = input * 3;
+    this.walletSpan.textContent = this.currentMoney + input;
   }
 
-  lose() {
+  lose(input) {
     console.log('przegrałeś!');
+    this.walletSpan.textContent = this.currentMoney - input;
+  }
+
+  wallet(input) {
+    // this.walletSpan.textContent = this.currentMoney - input;
   }
 
   spinEventListener = (e) => {
     e.preventDefault();
     let input = document.querySelector('.bid');
     input = input.value;
-
     if (isNaN(input) || input == '') {
       alert('you need to make a bid first');
     } else {
-      this.randomColors();
+      this.randomColors(input);
     }
   };
 }
@@ -71,6 +81,7 @@ const game = new Game({
   leftContainer: document.querySelector('.left__container'),
   middleContainer: document.querySelector('.middle__container'),
   rightContainer: document.querySelector('.right__container'),
+  walletSpan: document.querySelector('.wallet__span'),
 });
 
 game.start();
