@@ -17,10 +17,11 @@ class Game {
     this.rightContainer = rightContainer;
     this.walletSpan = walletSpan;
 
-    this.currentMoney = 100;
+    this.currentMoney;
   }
 
   start() {
+    this.currentMoney = 100;
     this.walletSpan.textContent = this.currentMoney;
     document
       .querySelector('.spin')
@@ -53,17 +54,25 @@ class Game {
   win(input) {
     console.log('brawo, wygrałeś');
     input = input * 3;
-    this.walletSpan.textContent = this.currentMoney + input;
+    this.currentMoney = this.currentMoney + input;
+    this.walletSpan.textContent = this.currentMoney;
   }
 
   lose(input) {
     console.log('przegrałeś!');
-    this.walletSpan.textContent = this.currentMoney - input;
+    this.currentMoney = this.currentMoney - input;
+    this.walletSpan.textContent = this.currentMoney;
+    if (this.currentMoney <= 0) {
+      alert('go home, you have no more money');
+      document
+        .querySelector('.spin')
+        .removeEventListener('click', this.spinEventListener);
+    }
   }
 
-  wallet(input) {
-    // this.walletSpan.textContent = this.currentMoney - input;
-  }
+  // wallet(input) {
+  //   // this.walletSpan.textContent = this.currentMoney - input;
+  // }
 
   spinEventListener = (e) => {
     e.preventDefault();
