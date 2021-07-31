@@ -1,28 +1,26 @@
-import {
-    Ui
-} from '../Saper/Ui.js'
+import { Ui } from './Ui.js';
 
 export class Cell extends Ui {
-    constructor(x, y) {
-        super();
-        this.x = x
-        this.y = y
-        this.alreadyMine = false
-        this.selector = `[data-x="${this.x}"][data-y="${this.y}"]`
-        this.element = null
-        this.cellFlagged = false
-    }
+  constructor(x, y) {
+    super();
+    this.x = x;
+    this.y = y;
+    this.alreadyMine = false;
+    this.selector = `[data-x="${this.x}"][data-y="${this.y}"]`;
+    this.element = null;
+    this.cellFlagged = false;
+  }
 
-    createElement() {
-        const element = `<div class='mineBox' data-cell data-column='${this.x}' data-row='${this.y}'></div>`
-        return element
-    }
+  createElement() {
+    const element = `<div class='mineBox' data-cell data-column='${this.x}' data-row='${this.y}'></div>`;
+    return element;
+  }
 
-    addMine() {
-        this.alreadyMine = true
-    }
+  addMine() {
+    this.alreadyMine = true;
+  }
 
-    addFlag() {
-        this.cellFlagged = !this.cellFlagged
-    }
+  addFlag() {
+    this.cellFlagged = !this.cellFlagged;
+  }
 }

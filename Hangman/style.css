@@ -1,46 +1,46 @@
 body {
-    height: 100vh;
-    margin: 0;
+  height: 100vh;
+  margin: 0;
 }
 
 #output {
-    height: 23vh;
+  height: 23vh;
 }
 
 #word {
-    font-size: 45px;
-    letter-spacing: 5px;
-    height: 20vh;
+  font-size: 45px;
+  letter-spacing: 5px;
+  height: 20vh;
 }
 
 #category {
-    color: darkblue;
-    margin-left: 50%;
-    font-size: 30px;
-    height: 10vh;
+  color: darkblue;
+  margin-left: 50%;
+  font-size: 30px;
+  height: 10vh;
 }
 
 #letters {
-    height: 20vh;
+  height: 20vh;
 }
 
-#letters>button {
-    z-index: 1;
-    border: black solid 1px;
-    margin: 0 1px;
-    font-size: 30px;
+#letters > button {
+  z-index: 1;
+  border: black solid 1px;
+  margin: 0 1px;
+  font-size: 30px;
 }
 
-#hangman>div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    size: 35px;
+#hangman > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  size: 35px;
 }
 
 img {
-    margin: 1px;
-    width: 50%;
-    margin-left: 27%;
-    margin-top: 10%;
+  margin: 1px;
+  width: 50%;
+  margin-left: 27%;
+  margin-top: 10%;
 }

@@ -1,61 +1,61 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    justify-content: center;
-    margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  margin: 0;
 }
 
 .mainWrapper {
-    text-align: center;
-    margin-top: 3%;
-    width: 843px;
-    height: 768px;
+  text-align: center;
+  margin-top: 3%;
+  width: 843px;
+  height: 768px;
 }
 
 .sideWrapper {
-    margin-top: 3%;
-    width: 523px;
-    height: 768px;
+  margin-top: 3%;
+  width: 523px;
+  height: 768px;
 }
 
 .topWrapper {
-    width: 523px;
-    height: 474px;
+  width: 523px;
+  height: 474px;
 }
 
 button {
-    margin-bottom: 5%;
+  margin-bottom: 5%;
 }
 
 .leftBtn {
-    margin-right: 15%;
+  margin-right: 15%;
 }
 
 .rightBtn {
-    margin-left: 15%;
+  margin-left: 15%;
 }
 
 .bottomWrapper {
-    display: flex;
-    flex-direction: column;
-    width: 523px;
-    height: 293px;
+  display: flex;
+  flex-direction: column;
+  width: 523px;
+  height: 293px;
 }
 
 .mainWrapper .hangman {
-    margin-top: 3%;
-    height: 90%;
+  margin-top: 3%;
+  height: 90%;
 }
 
 .topWrapper,
 h1 {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 h3 {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }

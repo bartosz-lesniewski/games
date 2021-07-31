@@ -1,49 +1,49 @@
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    font-size: 60%;
+  font-size: 60%;
 }
 
 .game {
-    padding: 20px;
-    border: 1px solid black;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 356px;
+  padding: 20px;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 356px;
 }
 
 .header {
-    display: flex;
-    justify-content: center;
-    border: 1px solid dimgray;
+  display: flex;
+  justify-content: center;
+  border: 1px solid dimgray;
 }
 
 .minefield {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .mineBox {
-    border: 1px solid;
-    border-color: dimgray black black dimgray;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+  border: 1px solid;
+  border-color: dimgray black black dimgray;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
 .survived {
-    background-color: green;
+  background-color: green;
 }
 
 .bombs {
-    background-color: red;
+  background-color: red;
 }
 
 .cell--is-flag {
-    background-color: darkorange;
+  background-color: darkorange;
 }
