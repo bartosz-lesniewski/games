@@ -1,4 +1,4 @@
-import { Ui } from './Ui.js';
+import { Ui } from './ui.js';
 
 import { Cell } from './cell.js';
 
