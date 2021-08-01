@@ -1,6 +1,6 @@
-import { Ui } from '../Saper/Ui.js';
+import { Ui } from './Saper/Ui.js';
 
-import { Cell } from '../Saper/cell.js';
+import { Cell } from './Saper/cell.js';
 
 class Game extends Ui {
   config = {
