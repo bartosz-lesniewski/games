@@ -1,4 +1,4 @@
-import { Ui } from './Ui.js';
+import { Ui } from './ui.js';
 
 export class Cell extends Ui {
   constructor(x, y) {
