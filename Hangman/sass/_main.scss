@@ -1,0 +1,37 @@
+.main {
+  width: 50vw;
+  @include flex-center;
+  &__category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3vh;
+    height: 10vh;
+  }
+  &__word {
+    @include flex-center;
+    width: 37vw;
+    letter-spacing: 5px;
+    height: 35vh;
+  }
+  &__letters {
+    height: 40vh;
+    width: 37vw;
+  }
+  &__button {
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    margin: 2px;
+    font-family: 'Indie Flower';
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    border-color: black;
+
+    &:hover {
+      border-color: darkred;
+      color: darkred;
+    }
+  }
+}

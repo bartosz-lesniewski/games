@@ -1,0 +1,9 @@
+.output {
+  width: 45vw;
+  display: flex;
+  align-items: center;
+  &__image {
+    max-width: 100%;
+    max-height: 50%;
+  }
+}
