@@ -1,31 +1,27 @@
-// import { Quote } from './quote.js';
+import { Quote } from './quote.js';
 
 class Game {
-  //   currentLife = 0;
-  //   lastLife = 8;
+  currentLife = 0;
+  lastLife = 8;
 
-  //   quotes = [
-  //     {
-  //       text: 'y tu mama tambien',
-  //       category: 'film',
-  //     },
-  //     {
-  //       text: 'z szynka raz',
-  //       category: 'książka',
-  //     },
-  //     {
-  //       text: 'everybodys gotta live',
-  //       category: 'piosenka',
-  //     },
-  //     {
-  //       text: 'a ci ktorzy tanczyli, zostali uznani za szalonych przez tych ktorzy nie slyszeli muzyki',
-  //       category: 'cytat',
-  //     },
-  //     {
-  //       text: 'tomasz michniewicz',
-  //       category: 'pisarz',
-  //     },
-  //   ];
+  quotes = [
+    {
+      text: 'Y TU MAMA TAMBIEN',
+      category: 'movie',
+    },
+    {
+      text: 'HAM ON RYE',
+      category: 'book',
+    },
+    {
+      text: 'EVERYBODYS GOTTA LIVE',
+      category: 'song',
+    },
+    {
+      text: 'STIEG LARSSON',
+      category: 'writer',
+    },
+  ];
 
   constructor({ outputWrapper, wordWrapper, categoryWrapper, lettersWrapper }) {
     this.outputWrapper = outputWrapper;
@@ -33,35 +29,37 @@ class Game {
     this.categoryWrapper = categoryWrapper;
     this.lettersWrapper = lettersWrapper;
 
-    //     const { text, category } =
-    //       this.quotes[Math.floor(Math.random() * this.quotes.length)];
-    //     this.categoryWrapper.innerHTML = category;
-    //     this.quote = new Quote(text);
+    const { text, category } =
+      this.quotes[Math.floor(Math.random() * this.quotes.length)];
+    this.categoryWrapper.innerHTML = category;
+    this.quote = new Quote(text);
   }
 
-  //   getImg() {
-  //     document.querySelector('div.life').innerHTML = `<img src=\'./images/${
-  //       this.currentLife + 1
-  //     }.png'>`;
-  //   }
+  getImg() {
+    document.querySelector(
+      '.output'
+    ).innerHTML = `<img class='output__image' src=\'./images/${
+      this.currentLife + 1
+    }.png'>`;
+  }
 
-  //   answer(letter, e) {
-  //     e.target.disabled = true;
-  //     if (this.quote.answer(letter)) {
-  //       this.initQuote();
-  //     } else {
-  //       this.currentLife++;
-  //       this.getImg();
-  //       if (this.currentLife == this.lastLife) {
-  //         this.loose();
-  //       }
-  //       console.log(this.currentLife);
-  //     }
-  //   }
+  answer(letter, e) {
+    e.target.disabled = true;
+    if (this.quote.answer(letter)) {
+      this.initQuote();
+    } else {
+      this.currentLife++;
+      this.getImg();
+      if (this.currentLife == this.lastLife) {
+        this.loose();
+      }
+      console.log(this.currentLife);
+    }
+  }
 
   initLetters() {
     for (let i = 0; i < 26; i++) {
-      const letter = (i + 10).toString(36);
+      const letter = (i + 10).toString(36).toUpperCase();
       const btnLetter = document.createElement('button');
       btnLetter.classList.add('main__button');
       btnLetter.innerHTML = letter.toUpperCase();
@@ -70,31 +68,30 @@ class Game {
     }
   }
 
-  //   initQuote() {
-  //     const content = this.quote.getText();
-  //     this.wordWrapper.innerHTML = content;
-  //     if (!content.includes('_')) {
-  //       this.win();
-  //     }
-  // }
-
-  start() {
-    console.log(this.lettersWrapper);
-    //     this.getImg();
-    this.initLetters();
-    //     this.initQuote();
+  initQuote() {
+    const content = this.quote.getText();
+    this.wordWrapper.innerHTML = content;
+    if (!content.includes('_')) {
+      this.win();
+    }
   }
 
-  //   win() {
-  //     this.wordWrapper.style.color = 'green';
-  //     this.wordWrapper.innerHTML = 'Brawo! Wygrywasz!!!';
-  //   }
+  start() {
+    this.getImg();
+    this.initLetters();
+    this.initQuote();
+  }
 
-  //   loose() {
-  //     this.wordWrapper.style.color = 'red';
-  //     this.wordWrapper.innerHTML =
-  //       'Porażka, tym razem szczęście Ci nie sprzyjało! Spróbuj ponownie!!!';
-  //   }
+  win() {
+    this.wordWrapper.style.color = 'green';
+    this.wordWrapper.innerHTML = 'Brawo! Wygrywasz!!!';
+  }
+
+  loose() {
+    this.wordWrapper.style.color = 'red';
+    this.wordWrapper.innerHTML =
+      'Porażka, tym razem szczęście Ci nie sprzyjało! Spróbuj ponownie!!!';
+  }
 }
 
 const game = new Game({
