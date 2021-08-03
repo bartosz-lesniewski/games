@@ -8,21 +8,21 @@ const content = [
     image:
       '<a href="https://bartosz-lesniewski.github.io/games/Hangman/hangman.html"><img  class=\'bottom__img\' src="https://bartosz-lesniewski.github.io/games/Hangman/images/okladka.png" alt="Game picture"></a>',
     gameInfo:
-      '<h2>- Kliknij w obrazek aby włączyć grę</br>- Early access nie bierze pod uwagę znaków diaktrycznych, weź to pod uwagę :)</br>- Masz 8 żyć</br></h2><h3>Baw się dobrze :)</h3>',
+      "<h2 class='top__h2'>- Kliknij w obrazek aby włączyć grę</br>- Early access nie bierze pod uwagę znaków diaktrycznych, weź to pod uwagę :)</br>- Masz 8 żyć</br></h2><h3>Baw się dobrze :)</h3>",
   },
   {
     game: 'Saper',
     image:
-      '<a href="https://bartosz-lesniewski.github.io/games/Saper/saper.html"><img class=\'saper\' src="https://bartosz-lesniewski.github.io/games/Saper/images/okladka.png" alt="Game picture"></a>',
+      '<a href="https://bartosz-lesniewski.github.io/games/Saper/saper.html"><img class=\'bottom__img\' src="https://bartosz-lesniewski.github.io/games/Saper/images/okladka.png" alt="Game picture"></a>',
     gameInfo:
-      '<h2>- Kliknij w obrazek aby włączyć grę</br>- gra w wersji Alpha, jak trafisz na minę, to gra zwróci czerwone tło w tym miejscu. </br>- Można grać, wygrać lub przegrać, ale obecna wersja nie podpowiada ile min jest przy danym polu</br></h2><h3>Baw się dobrze :)</h3>',
+      "<h2 class='top__h2'>- Kliknij w obrazek aby włączyć grę</br>- gra w wersji Alpha, jak trafisz na minę, to gra zwróci czerwone tło w tym miejscu. </br>- Można grać, wygrać lub przegrać, ale obecna wersja nie podpowiada ile min jest przy danym polu</br></h2><h3>Baw się dobrze :)</h3>",
   },
   {
     game: 'One Armed Bandit',
     image:
-      '<a href="https://bartosz-lesniewski.github.io/games/One Armed Bandit/index.html"><img class=\'oab\' src="https://bartosz-lesniewski.github.io/games/One Armed Bandit/okladka.png" alt="Game picture"></a>',
+      '<a href="https://bartosz-lesniewski.github.io/games/One Armed Bandit/index.html"><img class=\'bottom__img\' src="https://bartosz-lesniewski.github.io/games/One Armed Bandit/okladka.png" alt="Game picture"></a>',
     gameInfo:
-      '<h2>- Kliknij w obrazek aby włączyć grę</br>- gra w wersji Beta. </br>- Można grać, wygrać lub przegrać, obecna wersja nie podlicza statystyk, reszta działa jak należy :)</br></h2><h3>Baw się dobrze :)</h3>',
+      "<h2 class='top__h2'>- Kliknij w obrazek aby włączyć grę</br>- gra w wersji Beta. </br>- Można grać, wygrać lub przegrać, obecna wersja nie podlicza statystyk, reszta działa jak należy :)</br></h2><h3>Baw się dobrze :)</h3>",
   },
 ];
 
@@ -47,7 +47,7 @@ const changeRight = () => {
 };
 
 const addButtons = () => {
-  topLeftWrapper.innerHTML = `<button class='top__btn-back'> <- Zmień grę! </button> <h1>${content[contentIndex].game}</h1> <button class='top__btn-forward'> Zmień Grę! -> </button>`;
+  topLeftWrapper.innerHTML = `<h1 class='top__h1'>${content[contentIndex].game}</h1> <button class='top__btn-back'> Zmień grę! <- </button> <button class='top__btn-forward'> Zmień Grę! -> </button>`;
 };
 
 const changeImage = () => {
