@@ -1,12 +1,12 @@
-const topWrapper = document.body.querySelector('.topWrapper');
-const bottomWrapper = document.body.querySelector('.bottomWrapper');
-const mainWrapper = document.body.querySelector('.mainWrapper');
+const topLeftWrapper = document.body.querySelector('.top__left');
+const topRightWrapper = document.body.querySelector('.top__right');
+const bottomWrapper = document.body.querySelector('.bottom');
 
 const content = [
   {
     game: 'Wisielec',
     image:
-      '<a href="https://bartosz-lesniewski.github.io/games/Hangman/hangman.html"><img class=\'hangman\' src="https://bartosz-lesniewski.github.io/games/Hangman/images/okladka.png" alt="Game picture"></a>',
+      '<a href="https://bartosz-lesniewski.github.io/games/Hangman/hangman.html"><img  class=\'bottom__img\' src="https://bartosz-lesniewski.github.io/games/Hangman/images/okladka.png" alt="Game picture"></a>',
     gameInfo:
       '<h2>- Kliknij w obrazek aby włączyć grę</br>- Early access nie bierze pod uwagę znaków diaktrycznych, weź to pod uwagę :)</br>- Masz 8 żyć</br></h2><h3>Baw się dobrze :)</h3>',
   },
@@ -47,20 +47,24 @@ const changeRight = () => {
 };
 
 const addButtons = () => {
-  topWrapper.innerHTML = `<button class='leftBtn'> <- Zmień grę! </button> <h1>${content[contentIndex].game}</h1> <button class='rightBtn'> Zmień Grę! -> </button>`;
+  topLeftWrapper.innerHTML = `<button class='top__btn-back'> <- Zmień grę! </button> <h1>${content[contentIndex].game}</h1> <button class='top__btn-forward'> Zmień Grę! -> </button>`;
 };
 
 const changeImage = () => {
-  mainWrapper.innerHTML = content[contentIndex].image;
+  bottomWrapper.innerHTML = content[contentIndex].image;
 };
 
 const changeGameInfo = () => {
-  bottomWrapper.innerHTML = content[contentIndex].gameInfo;
+  topRightWrapper.innerHTML = content[contentIndex].gameInfo;
 };
 
 const eventListeners = () => {
-  document.querySelector('.leftBtn').addEventListener('click', changeLeft);
-  document.querySelector('.rightBtn').addEventListener('click', changeRight);
+  document
+    .querySelector('.top__btn-back')
+    .addEventListener('click', changeLeft);
+  document
+    .querySelector('.top__btn-forward')
+    .addEventListener('click', changeRight);
 };
 
 const changeContent = () => {
