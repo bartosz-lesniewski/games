@@ -11,7 +11,7 @@ const content = [
       "<h2 class='top__h2'>- Click on the image to start play,</br>- Game is version 1.0.0 - so its completed :)</br>- You have 8 lives</br></h2><h3>Have a fun! :)</h3>",
   },
   {
-    game: 'Saper',
+    game: 'Minesweeper',
     image:
       '<a href="https://bartosz-lesniewski.github.io/games/Saper/saper.html"><img class=\'bottom__img\' src="https://bartosz-lesniewski.github.io/games/Saper/images/okladka.png" alt="Game picture"></a>',
     gameInfo:
