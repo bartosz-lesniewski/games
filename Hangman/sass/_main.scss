@@ -39,4 +39,23 @@
       color: darkred;
     }
   }
+
+  &__play-again-btn {
+    border-radius: 10px;
+    width: 150px;
+    height: 75px;
+    background-color: black;
+    color: white;
+    font-size: 25px;
+    &:hover {
+      background-color: white;
+      color: darkred;
+      border-color: darkred;
+      cursor: pointer;
+    }
+  }
+}
+
+.z {
+  z-index: -1;
 }

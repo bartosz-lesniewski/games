@@ -53,7 +53,6 @@ class Game {
       if (this.currentLife == this.lastLife) {
         this.loose();
       }
-      console.log(this.currentLife);
     }
   }
 
@@ -83,14 +82,26 @@ class Game {
   }
 
   win() {
-    this.wordWrapper.style.color = 'green';
-    this.wordWrapper.innerHTML = 'Brawo! Wygrywasz!!!';
+    const h3 = document.createElement('h3');
+    h3.style.color = 'green';
+    h3.innerHTML = 'Congrats! You Win!';
+    this.wordWrapper.appendChild(h3);
+    this.playAgain();
   }
 
   loose() {
-    this.wordWrapper.style.color = 'red';
-    this.wordWrapper.innerHTML =
-      'Porażka, tym razem szczęście Ci nie sprzyjało! Spróbuj ponownie!!!';
+    const h3 = document.createElement('h3');
+    h3.style.color = 'red';
+    h3.innerHTML = 'You lost, try again!';
+    this.wordWrapper.appendChild(h3);
+    this.playAgain();
+  }
+
+  playAgain() {
+    document.querySelectorAll('.main__button').forEach((e) => {
+      e.classList.add('z');
+    });
+    this.categoryWrapper.innerHTML = `<button class='main__play-again-btn' onclick= 'window.location.reload();'>Play Again!</button>`;
   }
 }
 
