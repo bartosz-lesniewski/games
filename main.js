@@ -15,7 +15,7 @@ const content = [
     image:
       '<a href="https://bartosz-lesniewski.github.io/games/Saper/saper.html"><img class=\'bottom__img\' src="https://bartosz-lesniewski.github.io/games/Saper/images/okladka.png" alt="Game picture"></a>',
     gameInfo:
-      "<h2 class='top__h2'>- Click on the image to start play,</br>- game is alpha version, you can flag (orange), find field without mine (green) or find mine (red)</br>- mines is random every time</br></h2><h3>Have a fun! :)</h3>",
+      "<h2 class='top__h2'>- Click on the image to start play,</br>- game is in beta version, you can flag (orange), find field without mine (green) or find mine (red)</br>- mines is random every time</br></h2><h3>Have a fun! :)</h3>",
   },
   {
     game: 'One Armed Bandit',

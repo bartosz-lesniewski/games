@@ -126,7 +126,7 @@ class Game extends Ui {
     if (cell.alreadyMine === true && cell.cellFlagged === false) {
       cellClicked.classList.add('bombs');
       document.querySelector('.game__h1').textContent =
-        'BOOM! Trafiłeś na bombę i przegrałeś!';
+        'BOOM! You exploded, try again!';
       return this.gameOver();
     } else if (cell.alreadyMine === false && cell.cellFlagged == false) {
       cellClicked.classList.add('survived');
