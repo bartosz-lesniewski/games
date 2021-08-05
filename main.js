@@ -4,7 +4,7 @@ const bottomWrapper = document.body.querySelector('.bottom');
 
 const content = [
   {
-    game: 'Wisielec',
+    game: 'Hangman',
     image:
       '<a href="https://bartosz-lesniewski.github.io/games/Hangman/hangman.html"><img  class=\'bottom__img\' src="https://bartosz-lesniewski.github.io/games/Hangman/images/okladka.png" alt="Game picture"></a>',
     gameInfo:
