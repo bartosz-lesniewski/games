@@ -1,4 +1,4 @@
-class Game {
+export class Game {
   userShipPosition = 50;
   enemyShipPosition = 50;
   getInnerWidth = self.innerWidth - 210;

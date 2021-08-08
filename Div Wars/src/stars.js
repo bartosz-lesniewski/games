@@ -17,14 +17,15 @@ class Space {
     let stars = [];
 
     for (let i = 0; i < count; i++) {
-      const radius = Math.random() * 3 + 2;
+      const radius = Math.random() * 3 + 1;
 
       stars.push({
         x: Math.random() * this.width,
         y: Math.random() * this.height,
         radius: radius,
+        originalRadius: radius,
         color: '#fff',
-        speed: Math.random() + 0.01,
+        speed: Math.random() / 3 + 0.01,
       });
     }
     this.stars = stars;
@@ -39,11 +40,51 @@ class Space {
   updateStars() {
     this.stars.forEach((star) => {
       star.x += star.speed;
+      star.y -= (star.speed * (this.width / 2 - star.x)) / 14000;
+      star.radius = star.originalRadius * (Math.random() / 5 + 0.7);
 
       if (star.x > this.width + 2 * star.radius) {
         star.x = -2 * star.radius;
       }
     });
+  }
+
+  generateRandomConstelation() {
+    const x = (this.width / 2) * Math.random() + 0.25;
+    const y = (this.height / 2) * Math.random() + 0.25;
+    const radius = (this.height / 2) * Math.random() + 50;
+
+    this.constelaltion = {
+      stars: this.stars
+        .filter((star) => {
+          return (
+            star.x > x - radius &&
+            star.x < x + radius &&
+            star.y > y - radius &&
+            star.y < y + radius
+          );
+        })
+        .slice(0, Math.round(Math.random() * 5 + 3)),
+    };
+  }
+
+  drawConstellation() {
+    const { stars } = this.constelaltion;
+    const starsCount = stars.length;
+
+    const firstStar = stars[0];
+    const lastStar = stars[starsCount - 1];
+
+    this.ctx.beginPath();
+    this.ctx.moveTo(firstStar.x, firstStar.y);
+    this.ctx.lineTo(stars[1].x, stars[1].y);
+
+    for (let i = 1; i < starsCount - 1; i++) {
+      const nextStar = stars[i + 1];
+      this.ctx.lineTo(nextStar.x, nextStar.y);
+    }
+    this.ctx.strokeStyle = '#f7eada';
+    this.ctx.stroke();
   }
 
   clearCanvas() {
@@ -76,6 +117,7 @@ class Space {
     this.clearCanvas();
     this.drawStars();
     this.updateStars();
+    this.drawConstellation();
     window.requestAnimationFrame(() => {
       this.draw();
     });
@@ -84,6 +126,7 @@ class Space {
   start() {
     this.initCanvas();
     this.generateStars(366);
+    this.generateRandomConstelation();
     this.draw();
   }
 }
