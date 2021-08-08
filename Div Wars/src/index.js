@@ -1,3 +1,5 @@
+import { Space } from './stars.js';
+
 export class Game {
   userShipPosition = 50;
   enemyShipPosition = 50;

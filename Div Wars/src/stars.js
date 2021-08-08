@@ -1,4 +1,4 @@
-class Space {
+export class Space {
   constructor(canvas) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
