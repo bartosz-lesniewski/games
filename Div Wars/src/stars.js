@@ -4,6 +4,14 @@ class Space {
     this.ctx = canvas.getContext('2d');
     this.width = window.innerWidth;
     this.height = window.innerHeight;
+    this.lastConstellation = 0;
+    this.nextConstallation = Math.random() * 3000;
+    this.constelaltion = {
+      stars: [],
+      isClosed: false,
+      width: null,
+    };
+    this.lasUpdate = 0;
   }
   initCanvas() {
     this.canvas.width = this.width;
@@ -39,8 +47,9 @@ class Space {
 
   updateStars() {
     this.stars.forEach((star) => {
-      star.x += star.speed;
-      star.y -= (star.speed * (this.width / 2 - star.x)) / 14000;
+      star.x += star.speed * (this.delta / 16);
+      star.y -=
+        (star.speed * (this.delta / 16) * (this.width / 2 - star.x)) / 14000;
       star.radius = star.originalRadius * (Math.random() / 5 + 0.7);
 
       if (star.x > this.width + 2 * star.radius) {
@@ -50,8 +59,8 @@ class Space {
   }
 
   generateRandomConstelation() {
-    const x = (this.width / 2) * Math.random() + 0.25;
-    const y = (this.height / 2) * Math.random() + 0.25;
+    const x = (this.width / 2) * Math.random() + 1;
+    const y = (this.height / 2) * Math.random() + 1;
     const radius = (this.height / 2) * Math.random() + 50;
 
     this.constelaltion = {
@@ -65,26 +74,40 @@ class Space {
           );
         })
         .slice(0, Math.round(Math.random() * 5 + 3)),
+      isClosed: Math.random() > 0.5,
+      width: 3,
     };
   }
 
+  updateConstellation() {
+    if (this.constelaltion.width > 0) {
+      this.constelaltion.width -= 0.013;
+    } else this.constelaltion.width = 0;
+  }
+
   drawConstellation() {
-    const { stars } = this.constelaltion;
+    const { stars, isClosed, width } = this.constelaltion;
     const starsCount = stars.length;
 
-    const firstStar = stars[0];
-    const lastStar = stars[starsCount - 1];
+    if (starsCount > 2) {
+      const firstStar = stars[0];
 
-    this.ctx.beginPath();
-    this.ctx.moveTo(firstStar.x, firstStar.y);
-    this.ctx.lineTo(stars[1].x, stars[1].y);
+      this.ctx.beginPath();
+      this.ctx.moveTo(firstStar.x, firstStar.y);
+      this.ctx.lineTo(stars[1].x, stars[1].y);
 
-    for (let i = 1; i < starsCount - 1; i++) {
-      const nextStar = stars[i + 1];
-      this.ctx.lineTo(nextStar.x, nextStar.y);
+      for (let i = 1; i < starsCount - 1; i++) {
+        const nextStar = stars[i + 1];
+        this.ctx.lineTo(nextStar.x, nextStar.y);
+      }
+
+      if (isClosed) {
+        this.ctx.lineTo(firstStar.x, firstStar.y);
+      }
+      this.ctx.strokeStyle = '#f7eada';
+      this.ctx.lineWidth = width;
+      this.ctx.stroke();
     }
-    this.ctx.strokeStyle = '#f7eada';
-    this.ctx.stroke();
   }
 
   clearCanvas() {
@@ -113,21 +136,29 @@ class Space {
     this.ctx.restore();
   }
 
-  draw() {
+  draw(now) {
+    this.delta = now - this.lasUpdate;
     this.clearCanvas();
     this.drawStars();
     this.updateStars();
     this.drawConstellation();
-    window.requestAnimationFrame(() => {
-      this.draw();
+    this.updateConstellation();
+
+    if (now - this.lastConstellation > this.nextConstallation) {
+      this.lastConstellation = now;
+      this.nextConstallation = Math.random() * 3000 + 1000;
+      this.generateRandomConstelation();
+    }
+    this.lasUpdate = now;
+    window.requestAnimationFrame((now) => {
+      this.draw(now);
     });
   }
 
   start() {
     this.initCanvas();
     this.generateStars(366);
-    this.generateRandomConstelation();
-    this.draw();
+    this.draw(0);
   }
 }
 
