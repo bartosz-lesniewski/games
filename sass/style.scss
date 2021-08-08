@@ -70,7 +70,9 @@
     flex-basis: 100%;
     margin: 0 100px;
     &__img {
-      max-width: 100%;
+      display: block;
+      max-width: 80vw;
+      max-height: 60vh;
     }
   }
 }
