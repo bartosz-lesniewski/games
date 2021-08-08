@@ -1,6 +1,6 @@
 import { Space } from './stars.js';
 
-export class Game {
+class Game {
   userShipPosition = 50;
   enemyShipPosition = 50;
   getInnerWidth = self.innerWidth - 210;
