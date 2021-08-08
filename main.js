@@ -18,6 +18,13 @@ const content = [
       "<h2 class='top__h2'>- Click on the image to start play,</br>- game is in beta version, you can flag (orange), find field without mine (green) or find mine (red)</br>- mines is random every time</br></h2><h3>Have a fun! :)</h3>",
   },
   {
+    game: 'Div Wars',
+    image:
+      '<a href="https://bartosz-lesniewski.github.io/games/Div Wars/index.html"><img class=\'bottom__img\' src="https://bartosz-lesniewski.github.io/games/Div Wars/src/cover.png" alt="Game picture"></a>',
+    gameInfo:
+      "<h2 class='top__h2'>- Click on the image to start play,</br>- game is in alpha, use arrows to play: left, right and up </br>- You can move your DivShip you can even shoot (enemy ship is moving too), but there is no damage yet</br></h2><h3>Have a fun! :)</h3>",
+  },
+  {
     game: 'One Armed Bandit',
     image:
       '<a href="https://bartosz-lesniewski.github.io/games/One Armed Bandit/index.html"><img class=\'bottom__img\' src="https://bartosz-lesniewski.github.io/games/One Armed Bandit/okladka.png" alt="Game picture"></a>',
